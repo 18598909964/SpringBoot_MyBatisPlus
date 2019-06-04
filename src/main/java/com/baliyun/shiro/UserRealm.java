@@ -4,6 +4,7 @@ import com.baliyun.entity.AdminUser;
 import com.baliyun.entity.Landlord;
 import com.baliyun.entity.Tenant;
 import com.baliyun.service.AdminUserService;
+import com.baliyun.service.GradeService;
 import com.baliyun.service.LandlordService;
 import com.baliyun.service.TenantService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -28,6 +29,8 @@ public class UserRealm extends AuthorizingRealm {
     LandlordService landlordService;
     @Autowired
     TenantService tenantService;
+    @Autowired
+    GradeService gradeService;
 
     /*执行授权逻辑*/
     @Override
@@ -56,7 +59,7 @@ public class UserRealm extends AuthorizingRealm {
         AdminUser adminUser = new AdminUser();
         adminUser.setUsername(token.getUsername());
         Landlord landlord = new Landlord();
-        landlord.setPhone(token.getUsername());
+        landlord.setlPhone(token.getUsername());
         Tenant tenant = new Tenant();
         tenant.setPhone(token.getUsername());
 
@@ -65,24 +68,27 @@ public class UserRealm extends AuthorizingRealm {
                 .eq("username",adminUser.getUsername()));
 
         List<Landlord> landlordList = landlordService.selectList(new EntityWrapper<Landlord>()
-                .eq("phone",landlord.getPhone()));
+                .eq("l_phone",landlord.getlPhone()));
 
         List<Tenant> tenantList = tenantService.selectList(new EntityWrapper<Tenant>()
-                .eq("phone",tenant.getPhone()));
+                .eq("t_phone",tenant.getPhone()));
 
         System.out.println("管理员"+adminUserList.size()+"\n业主"+landlordList.size()+"\n租客"+tenantList.size());
         if (adminUserList.size()!=0){
-            System.out.println("管理："+adminUserList.get(0).getAdminPassword());
-            //2.判断密码（直接new认证逻辑（AuthenticationInfo）的子类）
+            /**管理员
+             * 2.判断密码（直接new认证逻辑（AuthenticationInfo）的子类）
+             */
             return new SimpleAuthenticationInfo(adminUserList,adminUserList.get(0).getAdminPassword(),"");
         }else if (landlordList.size()!=0){
-            System.out.println("业主："+landlordList.get(0).getUserPassword());
-            //2.判断密码（直接new认证逻辑（AuthenticationInfo）的子类）
-            return new SimpleAuthenticationInfo(landlordList,landlordList.get(0).getUserPassword(),"");
+            /**业主
+             * 2.判断密码（直接new认证逻辑（AuthenticationInfo）的子类）
+             */
+            return new SimpleAuthenticationInfo(landlordList,landlordList.get(0).getlPassword(),"");
         }else if (tenantList.size()!=0){
-            System.out.println("租客："+tenantList.get(0).getUserPassword());
-            //2.判断密码（直接new认证逻辑（AuthenticationInfo）的子类）
-            return new SimpleAuthenticationInfo(tenantList,tenantList.get(0).getUserPassword(),"");
+            /**租客
+             * 2.判断密码（直接new认证逻辑（AuthenticationInfo）的子类）
+             */
+            return new SimpleAuthenticationInfo(tenantList,tenantList.get(0).gettPassword(),"");
         }else {
             System.out.println("用户不存在");
             return null;

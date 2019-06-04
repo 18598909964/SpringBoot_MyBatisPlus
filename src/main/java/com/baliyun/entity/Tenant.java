@@ -11,20 +11,20 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-16
+ * @since 2019-06-04
  */
 public class Tenant implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
-    private String username;
-    private String userPassword;
+    @TableId(value = "t_id", type = IdType.AUTO)
+    private Long tId;
+    private String tUsername;
+    private String tPassword;
     /**
      * 身份证
      */
-    private Long idCard;
+    private Long tIdCard;
     /**
      * 性别
      */
@@ -51,36 +51,36 @@ public class Tenant implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long gettId() {
+        return tId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void settId(Long tId) {
+        this.tId = tId;
     }
 
-    public String getUsername() {
-        return username;
+    public String gettUsername() {
+        return tUsername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void settUsername(String tUsername) {
+        this.tUsername = tUsername;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String gettPassword() {
+        return tPassword;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void settPassword(String tPassword) {
+        this.tPassword = tPassword;
     }
 
-    public Long getIdCard() {
-        return idCard;
+    public Long gettIdCard() {
+        return tIdCard;
     }
 
-    public void setIdCard(Long idCard) {
-        this.idCard = idCard;
+    public void settIdCard(Long tIdCard) {
+        this.tIdCard = tIdCard;
     }
 
     public Integer getSex() {
@@ -134,10 +134,10 @@ public class Tenant implements Serializable {
     @Override
     public String toString() {
         return "Tenant{" +
-        ", id=" + id +
-        ", username=" + username +
-        ", userPassword=" + userPassword +
-        ", idCard=" + idCard +
+        ", tId=" + tId +
+        ", tUsername=" + tUsername +
+        ", tPassword=" + tPassword +
+        ", tIdCard=" + tIdCard +
         ", sex=" + sex +
         ", age=" + age +
         ", phone=" + phone +

@@ -12,22 +12,30 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class Room implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "room_id", type = IdType.AUTO)
+    private Long roomId;
+    /**
+     * 房产编号
+     */
+    private Long floorId;
+    /**
+     * 房东编号
+     */
+    private Long landlordId;
+    /**
+     * 租客编号
+     */
+    private Long tenantId;
     /**
      * 房间名称
      */
     private String roomName;
-    /**
-     * 房间地址
-     */
-    private String roomSite;
     /**
      * 状态(闲置:0、已租:1、预定:2、收租:3、逾期:4、租约到期:5)
      */
@@ -41,10 +49,6 @@ public class Room implements Serializable {
      */
     private Long roomTypeId;
     /**
-     * 房东编号
-     */
-    private Long landlordId;
-    /**
      * 入住时间
      */
     private Date checkInDate;
@@ -53,25 +57,21 @@ public class Room implements Serializable {
      */
     private Long tenancyTerm;
     /**
-     * 租客编号
-     */
-    private Long tenantId;
-    /**
-     * 押金
-     */
-    private BigDecimal cashPledge;
-    /**
      * 入住人数
      */
     private Long personNumber;
     /**
-     * 日常消耗ID
+     * 物业编号
      */
-    private Long runningCostId;
+    private Long propertyId;
     /**
      * 预约编号
      */
     private Long reserveId;
+    /**
+     * 押金
+     */
+    private BigDecimal cashPledge;
     /**
      * 押金状态
      */
@@ -94,12 +94,36 @@ public class Room implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getRoomId() {
+        return roomId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
+    }
+
+    public Long getFloorId() {
+        return floorId;
+    }
+
+    public void setFloorId(Long floorId) {
+        this.floorId = floorId;
+    }
+
+    public Long getLandlordId() {
+        return landlordId;
+    }
+
+    public void setLandlordId(Long landlordId) {
+        this.landlordId = landlordId;
+    }
+
+    public Long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Long tenantId) {
+        this.tenantId = tenantId;
     }
 
     public String getRoomName() {
@@ -108,14 +132,6 @@ public class Room implements Serializable {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
-    }
-
-    public String getRoomSite() {
-        return roomSite;
-    }
-
-    public void setRoomSite(String roomSite) {
-        this.roomSite = roomSite;
     }
 
     public Integer getRoomDwell() {
@@ -142,14 +158,6 @@ public class Room implements Serializable {
         this.roomTypeId = roomTypeId;
     }
 
-    public Long getLandlordId() {
-        return landlordId;
-    }
-
-    public void setLandlordId(Long landlordId) {
-        this.landlordId = landlordId;
-    }
-
     public Date getCheckInDate() {
         return checkInDate;
     }
@@ -166,22 +174,6 @@ public class Room implements Serializable {
         this.tenancyTerm = tenancyTerm;
     }
 
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public BigDecimal getCashPledge() {
-        return cashPledge;
-    }
-
-    public void setCashPledge(BigDecimal cashPledge) {
-        this.cashPledge = cashPledge;
-    }
-
     public Long getPersonNumber() {
         return personNumber;
     }
@@ -190,12 +182,12 @@ public class Room implements Serializable {
         this.personNumber = personNumber;
     }
 
-    public Long getRunningCostId() {
-        return runningCostId;
+    public Long getPropertyId() {
+        return propertyId;
     }
 
-    public void setRunningCostId(Long runningCostId) {
-        this.runningCostId = runningCostId;
+    public void setPropertyId(Long propertyId) {
+        this.propertyId = propertyId;
     }
 
     public Long getReserveId() {
@@ -204,6 +196,14 @@ public class Room implements Serializable {
 
     public void setReserveId(Long reserveId) {
         this.reserveId = reserveId;
+    }
+
+    public BigDecimal getCashPledge() {
+        return cashPledge;
+    }
+
+    public void setCashPledge(BigDecimal cashPledge) {
+        this.cashPledge = cashPledge;
     }
 
     public Integer getCashPledgeStatus() {
@@ -249,20 +249,20 @@ public class Room implements Serializable {
     @Override
     public String toString() {
         return "Room{" +
-        ", id=" + id +
+        ", roomId=" + roomId +
+        ", floorId=" + floorId +
+        ", landlordId=" + landlordId +
+        ", tenantId=" + tenantId +
         ", roomName=" + roomName +
-        ", roomSite=" + roomSite +
         ", roomDwell=" + roomDwell +
         ", roomMoney=" + roomMoney +
         ", roomTypeId=" + roomTypeId +
-        ", landlordId=" + landlordId +
         ", checkInDate=" + checkInDate +
         ", tenancyTerm=" + tenancyTerm +
-        ", tenantId=" + tenantId +
-        ", cashPledge=" + cashPledge +
         ", personNumber=" + personNumber +
-        ", runningCostId=" + runningCostId +
+        ", propertyId=" + propertyId +
         ", reserveId=" + reserveId +
+        ", cashPledge=" + cashPledge +
         ", cashPledgeStatus=" + cashPledgeStatus +
         ", repairsId=" + repairsId +
         ", repairsStatus=" + repairsStatus +

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
@@ -27,18 +27,18 @@
     </script>
 </head>
 <body>
-<form action="/LandlordContorller/toLogin" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return loginsubmit()">
+<form th:action="@{/landlord/login}" method="get" enctype="application/x-www-form-urlencoded" onsubmit="return loginsubmit()">
    <div class="login-main">
         <div class="login-header">
             登录
         </div>
         <div class="item-box">
             <img src="../../static/index/images/login-user.png" class="img">
-           <input type="text" name="phone"  id="phone" placeholder="用户名">
+           <input type="text" name="lPhone"  id="phone" placeholder="用户名">
         </div>
        <div class="item-box">
            <img src="../../static/index/images/login-pass.png" class="img">
-           <input type="text" name="userPassword" id="userPassword" placeholder="密码">
+           <input type="text" name="lPassword" id="userPassword" placeholder="密码">
        </div>
 
        <div class="item-box" style="border: 0px;margin-top: 15px;">

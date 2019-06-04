@@ -12,14 +12,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
-public class RunningCost implements Serializable {
+public class Property implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "property_id", type = IdType.AUTO)
+    private Long propertyId;
     /**
      * 房间id
      */
@@ -50,12 +50,12 @@ public class RunningCost implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getPropertyId() {
+        return propertyId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPropertyId(Long propertyId) {
+        this.propertyId = propertyId;
     }
 
     public Long getRoomId() {
@@ -116,8 +116,8 @@ public class RunningCost implements Serializable {
 
     @Override
     public String toString() {
-        return "RunningCost{" +
-        ", id=" + id +
+        return "Property{" +
+        ", propertyId=" + propertyId +
         ", roomId=" + roomId +
         ", gasFee=" + gasFee +
         ", waterRate=" + waterRate +

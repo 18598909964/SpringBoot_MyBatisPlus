@@ -1,6 +1,6 @@
 package com.baliyun.dao;
 
-import com.baliyun.entity.Trade;
+import com.baliyun.entity.Floor;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author 吾嘉
  * @since 2019-06-04
  */
-public interface TradeMapper extends BaseMapper<Trade> {
+public interface FloorMapper extends BaseMapper<Floor> {
 
 }

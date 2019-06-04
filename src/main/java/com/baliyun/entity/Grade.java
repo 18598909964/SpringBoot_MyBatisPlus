@@ -11,14 +11,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class Grade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "grade_id", type = IdType.AUTO)
+    private Long gradeId;
     /**
      * 权限名称
      */
@@ -37,12 +37,12 @@ public class Grade implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getGradeId() {
+        return gradeId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setGradeId(Long gradeId) {
+        this.gradeId = gradeId;
     }
 
     public String getGradeName() {
@@ -80,7 +80,7 @@ public class Grade implements Serializable {
     @Override
     public String toString() {
         return "Grade{" +
-        ", id=" + id +
+        ", gradeId=" + gradeId +
         ", gradeName=" + gradeName +
         ", description=" + description +
         ", addDate=" + addDate +

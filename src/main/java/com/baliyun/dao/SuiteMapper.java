@@ -1,6 +1,6 @@
 package com.baliyun.dao;
 
-import com.baliyun.entity.RunningCost;
+import com.baliyun.entity.Suite;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
-public interface RunningCostMapper extends BaseMapper<RunningCost> {
+public interface SuiteMapper extends BaseMapper<Suite> {
 
 }

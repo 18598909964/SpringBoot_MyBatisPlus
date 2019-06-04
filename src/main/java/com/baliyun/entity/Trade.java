@@ -12,14 +12,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class Trade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "trade_id", type = IdType.AUTO)
+    private Long tradeId;
     /**
      * 交易编号
      */
@@ -66,12 +66,12 @@ public class Trade implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getTradeId() {
+        return tradeId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTradeId(Long tradeId) {
+        this.tradeId = tradeId;
     }
 
     public String getOrderNumber() {
@@ -165,7 +165,7 @@ public class Trade implements Serializable {
     @Override
     public String toString() {
         return "Trade{" +
-        ", id=" + id +
+        ", tradeId=" + tradeId +
         ", orderNumber=" + orderNumber +
         ", roomId=" + roomId +
         ", tradeMeans=" + tradeMeans +

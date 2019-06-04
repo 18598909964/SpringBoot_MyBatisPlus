@@ -1,6 +1,6 @@
 package com.baliyun.service;
 
-import com.baliyun.entity.Room;
+import com.baliyun.entity.Floor;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author 吾嘉
  * @since 2019-06-04
  */
-public interface RoomService extends IService<Room> {
+public interface FloorService extends IService<Floor> {
 
 }

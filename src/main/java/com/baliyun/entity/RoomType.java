@@ -11,18 +11,30 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class RoomType implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "room_type_id", type = IdType.AUTO)
+    private Long roomTypeId;
     /**
      * 房间类型
      */
     private String type;
+    /**
+     * 空调
+     */
+    private Integer airConditioner;
+    /**
+     * 洗衣机
+     */
+    private Integer washingMachine;
+    /**
+     * 电视
+     */
+    private Integer tv;
     /**
      * 创建时间
      */
@@ -33,12 +45,12 @@ public class RoomType implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getRoomTypeId() {
+        return roomTypeId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoomTypeId(Long roomTypeId) {
+        this.roomTypeId = roomTypeId;
     }
 
     public String getType() {
@@ -47,6 +59,30 @@ public class RoomType implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Integer getAirConditioner() {
+        return airConditioner;
+    }
+
+    public void setAirConditioner(Integer airConditioner) {
+        this.airConditioner = airConditioner;
+    }
+
+    public Integer getWashingMachine() {
+        return washingMachine;
+    }
+
+    public void setWashingMachine(Integer washingMachine) {
+        this.washingMachine = washingMachine;
+    }
+
+    public Integer getTv() {
+        return tv;
+    }
+
+    public void setTv(Integer tv) {
+        this.tv = tv;
     }
 
     public Date getAddTime() {
@@ -68,8 +104,11 @@ public class RoomType implements Serializable {
     @Override
     public String toString() {
         return "RoomType{" +
-        ", id=" + id +
+        ", roomTypeId=" + roomTypeId +
         ", type=" + type +
+        ", airConditioner=" + airConditioner +
+        ", washingMachine=" + washingMachine +
+        ", tv=" + tv +
         ", addTime=" + addTime +
         ", updateDate=" + updateDate +
         "}";

@@ -1,12 +1,6 @@
 package com.baliyun.utility;
 
-import com.baliyun.entity.Landlord;
 import org.springframework.util.DigestUtils;
-
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Scanner;
 
 /**
  * MD5通用类

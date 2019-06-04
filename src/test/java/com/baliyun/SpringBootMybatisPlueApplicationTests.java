@@ -1,23 +1,18 @@
 package com.baliyun;
 
-import com.baliyun.entity.Landlord;
-import com.baliyun.service.LandlordService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
-import java.util.Scanner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootMybatisPlueApplicationTests {
 
+/*
     @Autowired
     LandlordService landlordService;
     @Test
@@ -36,6 +31,7 @@ public class SpringBootMybatisPlueApplicationTests {
         System.out.println(y);
     }
 
+*/
 
 
 }

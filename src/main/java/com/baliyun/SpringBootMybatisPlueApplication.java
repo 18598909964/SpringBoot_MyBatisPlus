@@ -1,7 +1,5 @@
 package com.baliyun;
 
-import com.baliyun.entity.Landlord;
-import com.baliyun.service.LandlordService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +48,7 @@ public class SpringBootMybatisPlueApplication {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
+/*
     @Autowired()
     LandlordService landlordService;
 
@@ -67,5 +66,6 @@ public class SpringBootMybatisPlueApplication {
         System.out.println(y);
         return "ok";
     }
+*/
 
 }

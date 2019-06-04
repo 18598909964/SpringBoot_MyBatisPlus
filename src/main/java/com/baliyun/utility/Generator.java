@@ -15,21 +15,22 @@ public class Generator {
         String packageName = "com.baliyun";
         boolean serviceNameStartWithI = false;//auth -> UserService, 设置成true: auth -> IUserService
         //把需要自动生成的表 放在这里!!
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "landlord");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "admin_user");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "admin_user");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "admin_role");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "floor");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "grade");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "landlord");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "property");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "register");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "repairs");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "reserve");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "role");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "role_grade");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "room");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "room_type");
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "suite");
         generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "tenant");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "room");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "running_cost");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "room_type");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "repairs");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "trade");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "reserve");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "register");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "role");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "grade");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "role_grade");
-//        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "admin_role");
-
+        generateByTables(serviceNameStartWithI, packageName, "吾嘉", "room_lease", "trade");
         System.out.println("completed...");
     }
 
@@ -75,7 +76,7 @@ public class Generator {
                                 .setEntity("entity")
                                 .setMapper("dao")
                                 .setService("service")
-                                .setServiceImpl("service.impl")
+                                 .setServiceImpl("service.impl")
                                 .setXml("dao")
                 ).execute();
     }

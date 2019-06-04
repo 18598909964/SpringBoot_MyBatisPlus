@@ -11,14 +11,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class Register implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "register_id", type = IdType.AUTO)
+    private Long registerId;
     /**
      * 租客编号
      */
@@ -57,12 +57,12 @@ public class Register implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getRegisterId() {
+        return registerId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRegisterId(Long registerId) {
+        this.registerId = registerId;
     }
 
     public Long getTenantId() {
@@ -140,7 +140,7 @@ public class Register implements Serializable {
     @Override
     public String toString() {
         return "Register{" +
-        ", id=" + id +
+        ", registerId=" + registerId +
         ", tenantId=" + tenantId +
         ", roomId=" + roomId +
         ", registerDate=" + registerDate +

@@ -11,27 +11,28 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-16
+ * @since 2019-06-04
  */
 public class Landlord implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "l_id", type = IdType.AUTO)
+    private Long lId;
     /**
      * 业主名称
      */
-    private String username;
-    private String userPassword;
+    private String lUsername;
+    private String lPassword;
     /**
      * 业主电话
      */
-    private String phone;
+    private String lPhone;
     /**
      * 是否封停（0未封停，1封停）
      */
-    private Integer userStatus;
+    private Integer lStatus;
+    private Long lIdCard;
     /**
      * 注册时间
      */
@@ -42,44 +43,52 @@ public class Landlord implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getlId() {
+        return lId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setlId(Long lId) {
+        this.lId = lId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getlUsername() {
+        return lUsername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setlUsername(String lUsername) {
+        this.lUsername = lUsername;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getlPassword() {
+        return lPassword;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setlPassword(String lPassword) {
+        this.lPassword = lPassword;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getlPhone() {
+        return lPhone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setlPhone(String lPhone) {
+        this.lPhone = lPhone;
     }
 
-    public Integer getUserStatus() {
-        return userStatus;
+    public Integer getlStatus() {
+        return lStatus;
     }
 
-    public void setUserStatus(Integer userStatus) {
-        this.userStatus = userStatus;
+    public void setlStatus(Integer lStatus) {
+        this.lStatus = lStatus;
+    }
+
+    public Long getlIdCard() {
+        return lIdCard;
+    }
+
+    public void setlIdCard(Long lIdCard) {
+        this.lIdCard = lIdCard;
     }
 
     public Date getRegisterDate() {
@@ -101,11 +110,12 @@ public class Landlord implements Serializable {
     @Override
     public String toString() {
         return "Landlord{" +
-        ", id=" + id +
-        ", username=" + username +
-        ", userPassword=" + userPassword +
-        ", phone=" + phone +
-        ", userStatus=" + userStatus +
+        ", lId=" + lId +
+        ", lUsername=" + lUsername +
+        ", lPassword=" + lPassword +
+        ", lPhone=" + lPhone +
+        ", lStatus=" + lStatus +
+        ", lIdCard=" + lIdCard +
         ", registerDate=" + registerDate +
         ", updateDate=" + updateDate +
         "}";

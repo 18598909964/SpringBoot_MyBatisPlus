@@ -11,14 +11,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class Reserve implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "reserve_id", type = IdType.AUTO)
+    private Long reserveId;
     /**
      * 房间编号
      */
@@ -49,12 +49,12 @@ public class Reserve implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getReserveId() {
+        return reserveId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setReserveId(Long reserveId) {
+        this.reserveId = reserveId;
     }
 
     public Long getRoomId() {
@@ -116,7 +116,7 @@ public class Reserve implements Serializable {
     @Override
     public String toString() {
         return "Reserve{" +
-        ", id=" + id +
+        ", reserveId=" + reserveId +
         ", roomId=" + roomId +
         ", tenantId=" + tenantId +
         ", landlordId=" + landlordId +

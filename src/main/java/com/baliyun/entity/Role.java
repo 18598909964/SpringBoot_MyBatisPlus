@@ -11,14 +11,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "role_id", type = IdType.AUTO)
+    private Long roleId;
     /**
      * 角色名称
      */
@@ -37,12 +37,12 @@ public class Role implements Serializable {
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public String getRoleName() {
@@ -80,7 +80,7 @@ public class Role implements Serializable {
     @Override
     public String toString() {
         return "Role{" +
-        ", id=" + id +
+        ", roleId=" + roleId +
         ", roleName=" + roleName +
         ", roleDescribe=" + roleDescribe +
         ", addDate=" + addDate +

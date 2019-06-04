@@ -11,14 +11,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author 吾嘉
- * @since 2019-05-15
+ * @since 2019-06-04
  */
 public class AdminUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "admin_user_id", type = IdType.AUTO)
+    private Long adminUserId;
     /**
      * 系统用户
      */
@@ -32,25 +32,25 @@ public class AdminUser implements Serializable {
      */
     private Integer adminStatus;
     /**
-     * 创建时间
-     */
-    private Date addTime;
-    /**
      * 最后一次登录时间
      */
     private Date lastLoginTime;
+    /**
+     * 创建时间
+     */
+    private Date addTime;
     /**
      * 更新时间
      */
     private Date updateDate;
 
 
-    public Long getId() {
-        return id;
+    public Long getAdminUserId() {
+        return adminUserId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAdminUserId(Long adminUserId) {
+        this.adminUserId = adminUserId;
     }
 
     public String getUsername() {
@@ -77,20 +77,20 @@ public class AdminUser implements Serializable {
         this.adminStatus = adminStatus;
     }
 
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
-
     public Date getLastLoginTime() {
         return lastLoginTime;
     }
 
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
     }
 
     public Date getUpdateDate() {
@@ -104,12 +104,12 @@ public class AdminUser implements Serializable {
     @Override
     public String toString() {
         return "AdminUser{" +
-        ", id=" + id +
+        ", adminUserId=" + adminUserId +
         ", username=" + username +
         ", adminPassword=" + adminPassword +
         ", adminStatus=" + adminStatus +
-        ", addTime=" + addTime +
         ", lastLoginTime=" + lastLoginTime +
+        ", addTime=" + addTime +
         ", updateDate=" + updateDate +
         "}";
     }
