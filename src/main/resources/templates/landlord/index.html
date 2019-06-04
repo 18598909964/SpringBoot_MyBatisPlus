@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智慧房&业主</title>
+    <link rel="stylesheet" type="text/css" href="../../static/index/css/adminindex.css">
+    <link rel="stylesheet" type="text/css" href="../../static/index/css/font-awesome/font-awesome.min.css">
+</head>
+
+<body>
+<div class="header-top">
+    <div class="logo">
+        LOGO
+    </div>
+    <div class="right">
+        <img src="../../static/index/images/exit.png">&nbsp;
+    </div>
+</div>
+<div class="menus-left">
+    <div class="menus-top">
+        <img src="../../static/index/images/nikimg.png" class="img-re">
+
+        <p class="xttong-admin" th:text="${landlordName}+${session.landlordId}"></p>
+        <p class="xitong-p">业主</p>
+    </div>
+    <div class="menus-main">
+        <ul>
+            <li>
+                <a th:href="internalPages" target="targetmain"> <i class="iconfont dicon  icon-home"></i>房源管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a th:href="'/TradeController/select/'+${session.landlordId}" target="targetmain"> <i class="iconfont dicon icon-table"></i>账务管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="http://www.hao123.com" target="targetmain"> <i class="iconfont dicon  icon-th-large"></i>报表<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="#" target="targetmain"><i class="iconfont  dicon icon-book"></i>预约管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="#" target="targetmain"><i class="iconfont  dicon icon-bolt"></i> <i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="#" target="targetmain"> <i class="iconfont  dicon  icon-truck"></i>订单管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="#" target="targetmain"><i class="iconfont  dicon   icon-user"></i>会员管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="#" target="targetmain">   <i class="iconfont  icon-money dicon"></i>充值记录<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="#" target="targetmain"> <i class="iconfont  dicon  icon-user-md"></i>系统用户<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+            <li>
+                <a href="LandlordContorller/internalPages" target="targetmain"> <i class="iconfont  dicon  icon-sign-blank"></i>退出<i class="iconfont icon-angle-right right-jiantou"></i></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="conter-main">
+    <iframe name="targetmain" class="iframe" src="/LandlordContorller/internalPages" scrolling="yes"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员首页</title>
+</head>
+<body>
+<h3>管理员名称</h3>
+<h3>管理员等级</h3>
+<table class="tablelist">
+    <thead>
+    <tr>
+        <th>查询</th>
+        <th>房源状态</th>
+        <th>房源地址</th>
+        <th>租金/月</th>
+        <th>报修状态</th>
+        <th>押金(元)</th>
+        <td>???</td>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rl : ${roomList}">
+        <td th:text="${rl.roomName}"></td>
+        <td th:text="${rl.roomDwell}"></td>
+        <td th:text="${rl.roomSite}"></td>
+        <td th:text="${rl.roomMoney}"></td>
+        <td th:text="${rl.repairsStatus}"></td>
+        <td th:text="${rl.cashPledge}"></td>
+        <td th:text="${rl.id}"></td>
+        <td >
+            <form method="get" th:action="'/RoomController/select/'+${rl.id}">
+                <button type="submit">
+                    <i class="tablelink">查看</i>
+                </button>
+            </form>
+            <form method="post" th:action="'/RoomController/delete/'+${rl.id}">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">
+                    <i class="tablelink">删除</i>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>

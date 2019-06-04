@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <table class="tablelist">
+        <thead>
+        <tr>
+            <th>房源名称</th>
+            <th>房源状态</th>
+            <th>房源地址</th>
+            <th>租金/月</th>
+            <th>报修状态</th>
+            <th>押金(元)</th>
+            <td>???</td>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="rl : ${roomList}">
+            <td th:text="${rl.roomName}"></td>
+            <td th:text="${rl.roomDwell}"></td>
+            <td th:text="${rl.roomSite}"></td>
+            <td th:text="${rl.roomMoney}"></td>
+            <td th:text="${rl.repairsStatus}"></td>
+            <td th:text="${rl.cashPledge}"></td>
+            <td th:text="${rl.id}"></td>
+            <td >
+                <form method="get" th:action="'/RoomController/select/'+${rl.id}">
+                    <button type="submit">
+                        <i class="tablelink">查看房源信息</i>
+                    </button>
+                </form>
+                <form>
+                    <button type="button">
+                        <a href="/RoomController/skip?skip=update" class="tablelink">修改房源信息</a>
+                    </button>
+                </form>
+                <form method="post" th:action="'/RoomController/delete/'+${rl.id}">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit">
+                        <i class="tablelink">删除</i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <div class="pagin">
+        <div class="message">共<i class="blue" th:text="${total}"></i>条记录，当前显示第&nbsp;<i class="blue" th:text="${pageNum}+'/'+${pages}">&nbsp;</i>页</div>
+        <ul class="paginList">
+            <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
+            <li class="paginItem"><a href="#" th:onclick="'javascript:pageS('+${pageNum}+','+${pages}+','+${session.landlordId}+')'">上一页</a></li>
+            <li class="paginItem"><a href="#" th:onclick="'javascript:page('+${pageNum}+','+${pages}+','+${session.landlordId}+')'">下一页</a></li>
+            <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    function pageS(pageNum,pages,landlordId) {
+        if (pageNum==1) {
+        }else {
+            pageNum=pageNum-1;
+        }
+        $.ajax({
+            url:"/LandlordContorller/index",
+            type:"post",
+            data:{
+                "pageNum":pageNum,
+                "landlordId": landlordId
+            },
+            success:function(data){
+                $("#indexAjax").html(data)
+            }
+        });
+    }
+
+    function page(pageNum,pages,landlordId) {
+        if (pageNum==pages) {
+        }else {
+            pageNum=pageNum+1;
+        }
+        $.ajax({
+            url:"/LandlordContorller/index",
+            type:"post",
+            data:{
+                "pageNum":pageNum,
+                "landlordId": landlordId
+            },
+            success:function(data){
+                $("#indexAjax").html(data)
+            }
+        });
+    }
+
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../static/index/css/adminindex.css">
+    <link rel="stylesheet" href="../../../static/index/css/adminbase.css">
+    <script src="../../../static/index/js/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+    function index(landlordId) {
+        $.ajax({
+            url:"/LandlordContorller/index",
+            type:"post",
+            data:{
+                "landlordId": landlordId
+            },
+            success:function(data){
+                $("#indexAjax").html(data)
+            }
+        });
+    }
+    window.onload=function(){
+        var landlordId = document.getElementById("landlordId").value;
+        var landlord = document.getElementById("landlord").value;
+        alert(landlordId+"+"+landlord);
+        index(landlordId)
+    }
+</script>
+<body>
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+
+
+        <li><a href="#"  >首页</a></li>
+    </ul>
+</div>
+
+<div class="session-main">
+    <table style="border: 0px;width:100%;">
+        <tr>
+            <td align="left" width="10%">
+                <input id="landlordId" th:type="text" th:value="${session.landlordId}" hidden/>
+                <input id="landlord" th:type="text" th:value="${session.landlordName}" hidden/>
+                <a href="/RoomController/skip?skip=insert" class="btn-add">
+                    <span><img src="../../../static/index/images/t01.png"></span>新增房源</a>
+            </td>
+
+            <td  width="90%">
+                <ul class="seachform" style="margin-top: 15px;float: right;">
+                    <li><label>综合查询</label><input name="" type="text" class="scinput"></li>
+                    <li><label>指派</label>
+                        <div class="vocation">
+                            <select class="select3" style="width: 100px;">
+                                <option>全部</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>重点客户</label>
+                        <div class="vocation">
+
+                            <select class="select3" style="width: 100px;">
+                                <option>全部</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+
+    <div id="indexAjax"></div>
+
+
+</div>
+
+</body>
+
+</html>

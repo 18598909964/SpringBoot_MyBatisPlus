@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <form action="/RoomController/skip" method="post">
+            <table>
+                <tr>
+                    <th>业主</th>
+                    <th><input type="text" th:value="${session.landlordName}" disabled class="dfinput"/></th>
+                </tr>
+                <tr>
+                    <th>房源名称</th>
+                    <th><input name="roomName" type="text" th:value="${room.roomName}" class="dfinput"></th>
+                </tr>
+                <tr>
+                    <th>房源地址</th>
+                    <th><input name="roomSite" type="text" th:value="${room.roomSite}" class="dfinput"></th>
+                </tr>
+                <tr>
+                    <th>租金/月</th>
+                    <th><input name="roomMoney" type="number" th:value="${room.roomMoney}" class="dfinput" ></th>
+                </tr>
+                <tr>
+                    <th>房间类型</th>
+                    <th><input name="roomTypeId " type="text" th:value="${room.roomTypeId}" class="dfinput"></th>
+                </tr>
+                <tr>
+                    <th>押金</th>
+                    <th><input name="cashPledge " type="number" class="dfinput" value=""></th>
+                </tr>
+                <tr>
+                    <th>房间状态</th>
+                    <th><input name="roomDwell " type="text" th:value="${room.roomDwell}" class="dfinput"></th>
+                </tr>
+                <tr>
+                    <th>房间类型</th>
+                    <th><input name="roomTypeId " type="text" class="dfinput" value=""></th>
+                </tr>
+                <tr>
+                    <th>房间类型</th>
+                    <th><input name="roomTypeId " type="text" class="dfinput" value=""></th>
+                </tr>
+                <tr>
+                    <th>房间类型</th>
+                    <th><input name="roomTypeId " type="text" class="dfinput" value=""></th>
+                </tr>
+                <tr>
+                    <th>房间类型</th>
+                    <th><input name="roomTypeId " type="text" class="dfinput" value=""></th>
+                </tr>
+                <tr>
+                    <th>房间类型</th>
+                    <th><input name="roomTypeId " type="text" class="dfinput" value=""></th>
+                </tr>
+
+            </table>
+            <input name="skip" type="text" value="index" hidden>
+            <input type="submit" value="返回">
+        </form>
+    </div>
+
+</body>
+</html>
