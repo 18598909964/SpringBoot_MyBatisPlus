@@ -32,12 +32,17 @@ public class LoginAndRegister {
     public String toLogin(@RequestParam(value = "condition",required = true,defaultValue = "非法用户") String condition){
         System.out.println("身份："+condition);
         if(condition.equals("业主")){
-            return "redirect:/LandlordContorller/login";
+            return "redirect:/LoginAndRegister/landlordLogin";
         }else if (condition.equals("租客")){
             return "redirect:/TenantController/login";
         }else {
             return "redirect:/login";
         }
+    }
+
+    @RequestMapping("/landlordLogin")   //业主登录页面
+    public String landlordLogin(){
+        return "/landlord/login";
     }
 
     @RequestMapping("/addUser")

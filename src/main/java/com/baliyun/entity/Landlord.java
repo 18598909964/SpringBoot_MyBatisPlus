@@ -3,6 +3,10 @@ package com.baliyun.entity;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -23,10 +27,15 @@ public class Landlord implements Serializable {
      * 业主名称
      */
     private String lUsername;
+    @NotNull
+    @Pattern(regexp = "^[a-zA-Z]\\w{5,17}$",message = "密码不能含有非法字符")
+    @Size(min = 6,max = 16,message = "密码长度在6到16位之间")
     private String lPassword;
     /**
      * 业主电话
      */
+    @NotNull
+    @Pattern(regexp = "^(\\(\\d{3,4}-)|\\d{3,4}-)?\\d{7,8}$",message = "电话格式不对")
     private String lPhone;
     /**
      * 是否封停（0未封停，1封停）
