@@ -21,7 +21,7 @@
     <div class="menus-top">
         <img src="../../static/index/images/nikimg.png" class="img-re">
 
-        <p class="xttong-admin" th:text="${landlordName}+${session.landlordId}"></p>
+        <p class="xttong-admin" th:text="${session.lUsername}+${session.lId}"></p>
         <p class="xitong-p">业主</p>
     </div>
     <div class="menus-main">
@@ -30,7 +30,7 @@
                 <a th:href="internalPages" target="targetmain"> <i class="iconfont dicon  icon-home"></i>房源管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
             </li>
             <li>
-                <a th:href="'/TradeController/select/'+${session.landlordId}" target="targetmain"> <i class="iconfont dicon icon-table"></i>账务管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
+                <a th:href="'/TradeController/select/'+${session.lId}" target="targetmain"> <i class="iconfont dicon icon-table"></i>账务管理<i class="iconfont icon-angle-right right-jiantou"></i></a>
             </li>
             <li>
                 <a href="http://www.hao123.com" target="targetmain"> <i class="iconfont dicon  icon-th-large"></i>报表<i class="iconfont icon-angle-right right-jiantou"></i></a>

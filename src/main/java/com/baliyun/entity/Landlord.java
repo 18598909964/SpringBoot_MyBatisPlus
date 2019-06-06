@@ -35,7 +35,7 @@ public class Landlord implements Serializable {
      * 业主电话
      */
     @NotNull
-    @Pattern(regexp = "^(\\(\\d{3,4}-)|\\d{3,4}-)?\\d{7,8}$",message = "电话格式不对")
+    @Pattern(regexp = "^1(3|4|5|6|7|8)\\d{9}$",message = "电话格式不对")
     private String lPhone;
     /**
      * 是否封停（0未封停，1封停）

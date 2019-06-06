@@ -35,7 +35,7 @@ public class LandlordController {
     @Autowired
     private LandlordService landlordService;
 
-    @GetMapping("/login")    //业主登录
+    @RequestMapping("/login")    //业主登录
     public String login(Landlord landlord, HttpSession session){
 
         //调用Validator工具类进行数据校验  --为真则执行用户查询--为假返回登录
@@ -58,24 +58,29 @@ public class LandlordController {
                 //把必要的数据存入session
                 List<Landlord> landlordList = landlordService.selectList(new EntityWrapper<Landlord>()
                         .eq("l_phone",landlord.getlPhone())
-                        .eq("l_password",landlord.getlPassword())
+                        .eq("l_password",lPassword)
                 );
                 session.setAttribute("lUsername",landlordList.get(0).getlUsername());
                 session.setAttribute("lId",landlordList.get(0).getlId());
-                return "index";
+                return "/landlord/index";
             } catch (UnknownAccountException e) {
                 //登录失败:用户名不存在
                 e.printStackTrace();
-                return "login";
+                return "/landlord/login";
             } catch (IncorrectCredentialsException e) {
                 //登录失败:密码错误
                 e.printStackTrace();
-                return "login";
+                return "/landlord/login";
             }
         }else {
             return "redirect:/LoginAndRegister/landlordLogin";
         }
 
+    }
+
+    @GetMapping("/internalPages")   //查房源查房间
+    public String internalPages(){
+        return "";
     }
 
 }

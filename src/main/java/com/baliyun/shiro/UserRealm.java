@@ -7,6 +7,7 @@ import com.baliyun.service.AdminUserService;
 import com.baliyun.service.GradeService;
 import com.baliyun.service.LandlordService;
 import com.baliyun.service.TenantService;
+import com.baliyun.utility.MD5Utility;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -71,7 +72,7 @@ public class UserRealm extends AuthorizingRealm {
                 .eq("l_phone",landlord.getlPhone()));
 
         List<Tenant> tenantList = tenantService.selectList(new EntityWrapper<Tenant>()
-                .eq("t_phone",tenant.getPhone()));
+                .eq("phone",tenant.getPhone()));
 
         System.out.println("管理员"+adminUserList.size()+"\n业主"+landlordList.size()+"\n租客"+tenantList.size());
         if (adminUserList.size()!=0){
